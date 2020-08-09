@@ -27,13 +27,13 @@ def capital_indexes(string):
         Returns the indexes of all occurrences of UPPERCASE elements in a
         given string.
     '''
-    # Create empty list.
+    # Create an empty list.
     index_post_list = []
     index_pos = 0
 
-    # Start of try and except.
+    # Start of the try and except block.
     try:
-        # Loop through string.
+        # Loop through string, element by element.
         for s in string:
             # Check for elements that meets uppercase condition.
             if s == s.upper():
