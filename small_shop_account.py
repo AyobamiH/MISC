@@ -34,6 +34,7 @@ elif service.lower() == 'create':
     pwd = input('Please enter admin password: ')
     if pwd != mpwd and user != muser:
         print('You have entered wrong user and password.')
+
     elif pwd != mpwd or user != muser:
         print('You have entered the wrong user or password.')
     else:
