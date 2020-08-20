@@ -47,7 +47,7 @@ while users < 5:
                     num_ok = True
 
                 else:
-                    num_ok = True
+                    num_ok = False
 
             except:
                 num_ok = False
