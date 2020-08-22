@@ -7,46 +7,63 @@
 # Call them directly during an append operation.
 
 def employee_id():
-    #<<<<-----------User Employee ID------------>>>
-        num_ok = False
+    """Function takes no arguments.
 
-        while not num_ok:
-            num = input('Enter number:')
+        Function prompts for < Employee ID > from user and returns < Employee ID >
+
+        """
+    # Flag to keep while loop under control.
+    num_ok = False
 
 
-            # Check for bad characters in user input and terminate if  bad character is found.
-            # Check to see user input isn't blank.
-            if num:
+    while not num_ok:
+        num = input('Enter number:')
+
+
+        # Check for bad characters in user input and terminate if  bad character is found.
+        # If user input is not blank.
+        if num:
+            
+
+            # Checking the user input to see if it is truly integer.
+            # Using try and  except statement to control error output.
+            try:
+
+                int(num)
+                num_ok = True
                 
+                # If length  is less than or equal to seven.
+                if len(num) <= 7:
+                    return num
 
-                # Checking the user input to see if it is truly integer.
-                # Using try and  except statement to control error output.
-                try:
-
-                    int(num)
-                    num_ok = True
-                    
-                    # If length  is less than or equal to seven.
-                    if len(num) <= 7:
-                        return num
-
-                    else:
-                        num_ok = False
-
-                except:
+                else:
                     num_ok = False
                     
-            else:
+            # If any error in user input ask for user input again.
+            except:
                 num_ok = False
+                
+        # Else ask for user input again.       
+        else:
+            num_ok = False
 
 def employee_name():
+    """ Function takes no arguments.
+
+        Function prompts user for <name input > and return < name >
+
+        """
+
+    # A flag to control the while loop.  
     name_ok = False
-        
+    
+    # Characters that must not be included in user input.
     characters =  list('!"@#$%^&*()_=+,<\>/?;:[]{}\).')
 
     while not name_ok:
-        
 
+
+        # Ask user for name.
         name = input('Enter name:')
 
         if name.istitle():
@@ -58,9 +75,17 @@ def employee_name():
 
 
 def employee_address():
+    """ Function takes no arguments.
+
+        Function prompts for employee < ~address~ > as input from user and returns < ~address~ >
+
+        Function returns a None type if no input was given by user.
+
+    """
+        
     bad_chars = list("!\"'@$%^&*_=+<>?;:[]{}).")
 
-        # Flag = keeps while loop under control. 
+    # Flag keeps while loop under control. 
     address_ok = False   
 
 
@@ -87,17 +112,26 @@ def employee_address():
                     # If element of address in the list of bad characters ask user for input.
                     if element in bad_chars:
                         address_ok = False
-                        
+
+                    # Else return user input.
                     else:
                         return address
                         
-                        
+        # Else inform user they did not provide an address.              
         else:
             return 'You did not provide an address.'
 
 
 def employee_email():
+    """Function takes no arguments.
+
+        Function prompts for employee < email > as input from user and returns < email >.
+        
+        """
+    # Active flag for while loop.
     active = False
+
+    # Characters that mjust not be included in user input.
     characters =  list('!"\'#$%^&*()=+,<>/?;:[]{}\)')
 
 
@@ -137,7 +171,7 @@ def employee_email():
                 else:
                     
                     active = False
-                    
+                  
                 if not active:
                     
                     email = input('Email was not entered properly\nPlease try again:')
@@ -186,7 +220,7 @@ else:
 
 
         # Appending dictionary object to list.
-        # Calling functions inside the the 
+        # Calling functions inside the list append aoperation. 
         employee_data.append({'ID num': employee_id(),  'Name': employee_name(), 'Employee Address': employee_address(), 'Employee Email': employee_email() })
         count = count + 1
 
