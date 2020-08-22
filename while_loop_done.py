@@ -154,15 +154,17 @@ else:
                         new_email += letter
 
 
-                        # Terminate the program if we have any bad character present in user input.
+                        #  if any bad character present in user input.
                         if letter in characters:
+
+                            # Get the right input from user
                             active = False
                             
                         else:
                             active = True
 
                     #  If user input does not have characters of a real email address.
-                    # Return to start of while loop and ask user to enter email address again
+                    # Ask user to enter input.
                     else:
                         
                         active = False
