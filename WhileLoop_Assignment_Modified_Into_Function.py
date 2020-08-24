@@ -58,7 +58,8 @@ def employee_name():
     name_ok = False
     
     # Characters that must not be included in user input.
-    characters =  list('!"@#$%^&*()_=+,<\>/?;:[]{}\).')
+    # characters =  list('!"@#$%^&*()_=+,<\>/?;:[]{}\).')
+    characters =  list('! " @ # $ % ^ & * ( ) _ = + , < > / ? ; : [ ] { } \ )')
  
     while not name_ok:
  
@@ -92,7 +93,7 @@ def employee_address():
     while not address_ok:
  
         # Get user input.
-        address = input('Enter postal address:  ')
+        address = input('Enter postal address: ')
  
         # Check to make sure user input is not blank.
         if address:
@@ -166,7 +167,7 @@ def employee_email():
                     else:
                         return email
  
-                #  If user input does not have characters of a real email address.
+                # If user input does not have characters of a real email address.
                 # Ask user to enter input.
                 else:
                     
@@ -193,18 +194,37 @@ print('You can store upto 5 employee datas per session.')
  
 # Ask user for input.
 users = input('Number of employee datas to store ?: ')
-users = int(users)
+
+# Validate users is not a blank input.
+if users:
+    
+    # Error Handling.
+    try:
+        users = int(users)
+
+        # Another check to keep users under limit of 5.
+        if users > 5:
+            print('Please be sure to enter an integer not greater than 5.')
+
+        # Users less than 5 .
+        # Run the while loop for the value of users.    
+        else:
+
+            # While loop runs till counter flag is equal to users.
+            while count < users:
  
-# Check to make sure user is not exceeding limit.
-if users > 5:
-    pass
+ 
+                # Appending dictionary object to list.
+                # Calling functions inside the list append aoperation. 
+                employee_data.append({'ID num': employee_id(),  'Name': employee_name(), 'Employee Address': employee_address(), 'Employee Email': employee_email() })
+                count = count + 1
+
+
+
+    except:
+        print('Please be sure to enter an integer.')
+
 else:
-    while count < users:
- 
- 
-        # Appending dictionary object to list.
-        # Calling functions inside the list append aoperation. 
-        employee_data.append({'ID num': employee_id(),  'Name': employee_name(), 'Employee Address': employee_address(), 'Employee Email': employee_email() })
-        count = count + 1
- 
+    print('Please be sure you have not entered a blank.')
+
 print(employee_data)
